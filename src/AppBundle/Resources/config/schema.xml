@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="default"
+          namespace="AppBundle\NewsSite"
+          defaultIdMethod="native"
+>
+    <table name="item">
+        <column name="id"
+                type="integer"
+                required="true"
+                primaryKey="true"
+                autoIncrement="true"
+        />
+        <column name="title"
+                type="longvarchar"
+                required="true"
+                primaryString="true"
+        />
+
+        <column name="description"
+                type="longvarchar"
+                primaryString="true"
+        />
+        <column name="date"
+                type="date"
+                required="true"
+        />
+        <column name="user_id"
+                type="integer"
+                required="true"
+        />
+        <foreign-key  foreignTable="user">
+            <reference local="user_id" foreign="id"/>
+        </foreign-key>
+    </table>
+
+    <table name="user">
+            <column name="id"
+                    type="integer"
+                    required="true"
+                    primaryKey="true"
+                    autoIncrement="true"
+            />
+            <column name="username"
+                    type="varchar"
+                    size="100"
+                    required="true"
+
+            />
+            <column name ="password"
+                    type="longvarchar"
+                    required="true"
+            />
+        <unique name="unique_column">
+            <unique-column name="username" />
+        </unique>
+    </table>
+
+    <table name="comment">
+        <column name="id"
+                type="integer"
+                required="true"
+                primaryKey="true"
+                autoIncrement="true"
+        />
+        <column name="content"
+                type="longvarchar"
+                required="true"
+        />
+        <column name="date"
+                type="date"
+                required="true"
+        />
+        <column name="user_id"
+                type="integer"
+                required="true"
+        />
+        <column name="item_id"
+                type="integer"
+                required="true"
+        />
+        <foreign-key foreignTable="user">
+            <reference local="user_id" foreign="id"/>
+        </foreign-key>
+
+        <foreign-key foreignTable="item">
+            <reference local="item_id" foreign="id"/>
+        </foreign-key>
+    </table>
+</database>

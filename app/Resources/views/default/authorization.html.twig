@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="authorization-body">
+        <div class="authorization-window">
+            <div class="authorization-window__sign-in">
+                <span id="authorization-window__span">Пожалуйста, авторизируйтесь</span>
+
+            </div>
+            <form id="authorization-window__form" method="post" action="/authorization/">
+                <div class="authorization-window__login">
+                    <input placeholder="Введите логин" id="authorization-window__login" name="authorizationwindowlogin">
+                </div>
+
+                <div class="authorization-window__password">
+                 <input type="password" placeholder="Введите пароль" id="authorization-window__password" name="authorizationwindowpassword">
+                </div>
+                <div class="authorization-window__button">
+                    <button type="submit" id="authorization-window__button">Войти</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

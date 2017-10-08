@@ -1,0 +1,39 @@
+{% for Item in Items %}
+
+    <div class="list-items">
+        <div class="list-items__title">
+            <div>
+                <a href="{{path('single-item', {number:Item.id})}}" class="list-items__link">{{ Item.title }}</a>
+            </div>
+        </div>
+        <div class="list-items__description">
+            {{ Item.description }}
+        </div>
+
+        <div class="list-items__date">
+            <span>Дата:</span>
+            {{ Item.date('d/m/Y') }}
+        </div>
+        <div class="list-items__author">
+            <span>Автор статьи:</span>
+            {{ Item.user.username }}
+        </div>
+        <div class="list-items__count-comment">
+            <span>Комментариев:</span>
+            {{ Item.countComments}}
+        </div>
+    </div>
+{% endfor %}
+<div class="paginate">
+{% for Pager in Pagers.links %}
+    {% if Number == Pager %}
+        <div>
+            <b><a href="#" class="paginate__link" data-id="{{ Pager }}">{{ Pager }}</a></b>
+        </div>
+    {% else %}
+         <div>
+             <a href="#" class="paginate__link" data-id="{{ Pager }}">{{ Pager }}</a>
+         </div>
+    {% endif %}
+{% endfor %}
+</div>

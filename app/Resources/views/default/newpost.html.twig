@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="new-post">
+        <form method="post" action="/createpost/" id="new-post__form">
+            <span>Введите название поста</span>
+
+            <div>
+                <input id="new-post__name" name="newpostname" placeholder="Название поста...">
+            </div>
+
+            <span>Введите текст поста</span>
+            <div >
+                <textarea id="new-post__description" name="newpostdescription" placeholder="Текст поста..." rows="10"></textarea>
+            </div>
+
+            <div class="new-post__button">
+                <button type="submit" id="new-post__button">Отправить</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
